@@ -1,0 +1,58 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+
+import RegisterLecturer from "./page/RegisterLecturer";
+import LoginLecturer from "./page/LoginLecturer";
+import ClassSchedule from "./page/ClassSchedule";
+import LandingPage from "./page/LandingPage";
+import Attendance from "./page/Attendance";     // ← ✔ YOUR STUDENT LOGIN PAGE
+import SuccessPage from "./page/SuccessPage";
+import ClassDetails from "./page/ClassDetails";
+import PreviousClass from "./page/PreviousClass";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+    index: true,
+  },
+  {
+    path: "/registerLecturer",
+    element: <RegisterLecturer />,
+  },
+  {
+    path: "/classDetails",
+    element: <ClassDetails />,
+  },
+  {
+    path: "/attendance",       // ← ✔ THIS IS THE STUDENT LOGIN PAGE
+    element: <Attendance />,
+  },
+  {
+    path: "/loginLecturer",
+    element: <LoginLecturer />,
+  },
+  {
+    path: "/classSchedule",
+    element: <ClassSchedule />,
+  },
+  {
+    path: "/previousClass",
+    element: <PreviousClass />,
+  },
+  {
+    path: "/success",
+    element: <SuccessPage />,
+  },
+]);
+
+function App() {
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Analytics />
+    </>
+  );
+}
+
+export default App;
